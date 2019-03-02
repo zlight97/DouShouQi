@@ -24,6 +24,7 @@ private:
     Team currentTurn;
     bool staged;
     Piece *stagedPiece;
+    validDir valid;
     // bool 
     // vector<Map*> MapTiles;
     

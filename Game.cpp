@@ -41,26 +41,45 @@ void Game::click(float x, float y)
     double yFac = 2./8.;
 	int yCh = doubleToIntY(y);
 	int xCh = doubleToIntX(x);
+
 	cout<<"[ "<<x<<", "<<y<<" ]\n";
 	cout<<"("<<xCh<<", "<<yCh<<")\n";
 	cout<<"("<<intToDoubleX(xCh)<<", "<<intToDoubleY(yCh)<<")\n";
+
 	if(!staged&&pieces[yCh][xCh]->getTeam()==currentTurn)
 	{
 		staged = true;
 		stagedPiece = pieces[yCh][xCh];
+
+		cout<<"(Matt"<<xCh<<", "<<yCh<<")\n";
+
+		stagedPiece->stage(/*valid*/);
+
 	}else if(staged)
 	{
 		int curX = stagedPiece->getX();
 		int curY = stagedPiece->getY();
-		Piece *p = pieces[yCh][xCh];
+		
+		if (((curX-xCh)==1)|((curX-xCh)==-1)|((curY-yCh)==1)|((curY-yCh)==-1)){
+			pieces[curY][curX] = pieces[yCh][xCh];
+			pieces[yCh][xCh] = stagedPiece;
+			pieces[curY][curX]->move(curX,curY);
+			stagedPiece->move(xCh,yCh);
+
+			staged = false;
+			stagedPiece->stage();
+			stagedPiece=NULL;
+		}
+		/*
 		pieces[curY][curX] = pieces[yCh][xCh];
 		pieces[yCh][xCh] = stagedPiece;
 		pieces[curY][curX]->move(curX,curY);
 		stagedPiece->move(xCh,yCh);
 
 		staged = false;
+		stagedPiece->stage();
 		stagedPiece=NULL;
-		
+		*/
 		if(currentTurn==BLACK)
 			currentTurn=RED;
 		else

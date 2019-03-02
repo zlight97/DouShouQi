@@ -76,10 +76,11 @@ bool Piece::move(int x, int y)
     delete tex;
     tex = new TextRect(filename.c_str(), intToDoubleX(this->x),intToDoubleY(this->y),2./9.,2./7.);
 }
-void Piece::stage()
+void Piece::stage(/*valid*/)
 {
     staged = !staged;
 }
+
 void Piece::draw()
 {
     tex->draw();

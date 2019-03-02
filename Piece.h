@@ -16,7 +16,7 @@ public:
     void draw();
     void clicked(float x, float y);
     void updatePiece(int x, int y, int strength,Team t);
-    void stage();
+    void stage(/*validDir&*/);
     int getX() {return x;}
     int getY() {return y;}
     Team getTeam() {return team;}
@@ -29,6 +29,7 @@ private:
     int strength;
     int x, y;
     TextRect *tex;
+    validDir valid;
 };
 
 #endif

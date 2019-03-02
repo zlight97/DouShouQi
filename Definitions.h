@@ -8,6 +8,14 @@ enum Team
     NEITHER
 };
 
+struct validDir
+{
+    bool up;
+    bool down;
+    bool left;
+    bool right;
+};
+
 int const col = 9;
 int const row = 7;
 
