@@ -19,9 +19,12 @@ Map::~Map() {
 void Map::draw() {
     // grassTex -> draw();
     // waterTex -> draw();
+    waterTex -> draw();
 }
 
 void Map::loadText() {
+    double xFac = 2./9.;
+    double yFac = 2./7.;
     if (grassTex == NULL || waterTex == NULL || trapTex == NULL || denTex == NULL){ 
         return;
     }
