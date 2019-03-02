@@ -6,7 +6,6 @@ Map::Map(float x, float y, float w, float h) {
     this -> y =  y;
     this -> w =  w;
     this -> h = h;
-
     grassTex = new TextRect("Grass.png",x,y,w,h);
 }
 
