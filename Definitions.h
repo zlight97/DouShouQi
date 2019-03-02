@@ -8,6 +8,14 @@ enum Team
     NEITHER
 };
 
+enum tileType
+{
+    WATER,
+    DEN,
+    TRAP,
+    NONE
+};
+
 struct validDir
 {
     bool up;
