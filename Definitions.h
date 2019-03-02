@@ -1,7 +1,7 @@
 #ifndef DEFINITIONS_H
 #define DEFINITIONS_H
 
-enum Turn
+enum Team
 {
     BLACK,
     RED,

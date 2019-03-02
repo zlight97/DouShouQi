@@ -9,7 +9,7 @@ using namespace std;
 class Piece
 {
 public:
-    Piece(int strength/*,Turn t*/);
+    Piece(int strength/*,Team t*/);
     ~Piece();
     bool move(int x, int y);
     void draw();
