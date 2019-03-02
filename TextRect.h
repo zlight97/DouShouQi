@@ -10,7 +10,7 @@
 #else
 #include <GL/freeglut.h>
 #include <SOIL.h>
-#include "Map.h"
+// #include "Map.h"
 #endif
 
 class TextRect {

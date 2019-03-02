@@ -24,8 +24,8 @@ void App::draw() {
     // Set up the transformations stack
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    g->draw();
     p->draw();
+    g->draw();
     // We have been drawing everything to the back buffer
     // Swap the buffers to see the result of what we drew
     glFlush();
