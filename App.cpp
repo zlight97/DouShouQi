@@ -4,7 +4,7 @@
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
     // Initialize state variables
     g = new Game();
-    p = new Piece(0,7, 6, BLACK);
+    p = new Piece(0,4, 6, RED);
 }
 
 App::~App()
@@ -24,8 +24,8 @@ void App::draw() {
     // Set up the transformations stack
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    p->draw();
     g->draw();
+    p->draw();
     // We have been drawing everything to the back buffer
     // Swap the buffers to see the result of what we drew
     glFlush();
@@ -40,7 +40,8 @@ void App::idle()
 
 void App::mouseDown(float x, float y){
     // g->click(x,y);
-    p->clicked(x,y);
+    g->newGame();
+    // p->clicked(x,y);
     redraw();
 }
 

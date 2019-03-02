@@ -15,6 +15,8 @@ public:
     bool move(int x, int y);
     void draw();
     void clicked(float x, float y);
+    void updatePiece(int x, int y, int strength,Team t);
+    string getID() {return ID;}
 private:
     string filename;
     Team team;

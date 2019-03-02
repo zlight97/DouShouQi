@@ -12,14 +12,17 @@ class Game
 {
 public:
     Game();
+    ~Game();
     void start();
     void draw();
     void click(float x, float y);
+    void newGame();
 
 private:
     void drawBackground();
-    Piece pieces[7][9];
+    vector <vector<Piece*> > pieces;
     Team currentTurn;
+    // bool 
     // vector<Map*> MapTiles;
     
 

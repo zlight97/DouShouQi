@@ -9,7 +9,7 @@ enum Team
 };
 
 int const col = 9;
-int const row = 6;
+int const row = 7;
 
 inline int doubleToIntX(const double &x)
 {
