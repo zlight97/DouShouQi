@@ -1,6 +1,6 @@
 #ifndef PIECE_H
 #define PIECE_H
-
+#include "TextRect.h"
 #include "GlutApp.h"
 #include "Definitions.h"
 #include <iostream>
@@ -11,7 +11,7 @@ class Piece
 {
 public:
     Piece();
-    Piece(int strength,Team t);
+    Piece(int x, int y, int strength,Team t);
     ~Piece();
     bool move(int x, int y);
     void draw();
@@ -21,6 +21,7 @@ private:
     string ID;
     int strength;
     int x, y;
+    TexRect *tex;
 };
 
 #endif
