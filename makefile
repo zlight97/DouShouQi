@@ -12,7 +12,7 @@ PROGRAM = DouShouQi
 # OPTFLAGS = -g  # for debug
 OPTFLAGS =
 CC       = g++ -std=c++11
-CFLAGS   = -w $(OPTFLAGS) -ISOIL/includes
+CFLAGS   = -w $(OPTFLAGS) -ISOIL/includes -no-pie
 
 ifeq ($(strip $(OS)),Darwin)
 	LDFLAGS = -framework CoreFoundation -framework GLUT -framework OpenGL -LSOIL/lib/macOS -lSOIL

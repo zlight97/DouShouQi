@@ -2,6 +2,7 @@
 #define GlutApp_hpp
 
 #include <iostream>
+#include "Definitions.h"
 
 #if defined WIN32
 #include <freeglut.h>

@@ -2,7 +2,6 @@
 #define PIECE_H
 #include "TextRect.h"
 #include "GlutApp.h"
-#include "Definitions.h"
 #include <iostream>
 
 using namespace std;

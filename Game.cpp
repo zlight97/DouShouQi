@@ -21,5 +21,10 @@ void Game::draw()
 }
 void Game::click(float x, float y)
 {
-
+    double xFac = 2./10.;
+    double yFac = 2./8.;
+	int yCh = 7-(y+1.)*4;
+	int xCh = 9-(x-1)*-5;
+	cout<<"[ "<<x<<", "<<y<<" ]\n";
+	cout<<"("<<xCh<<", "<<yCh<<")\n";
 }

@@ -3,7 +3,6 @@
 #include <iostream>
 #include <vector>
 #include "GlutApp.h"
-#include "Definitions.h"
 #include "Piece.h"
 #include "Map.h"
 
@@ -20,8 +19,6 @@ public:
 private:
     Piece pieces[7][9];
     Team currentTurn;
-    int const col = 9;
-	int const row = 6;
     vector<Map*> MapTiles;
 };
 

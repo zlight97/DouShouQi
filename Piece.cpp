@@ -1,5 +1,4 @@
 #include "Piece.h"
-#include "Definitions.h"
 using namespace std;
 
 Piece::Piece()
@@ -55,9 +54,10 @@ Piece::Piece(int x, int y, int strength,Team t)//Team will decide where the piec
             filename= "textures/elephant.png";
         break;
     }
-    double xFac = 2./9;
-    double yFac = 2./7;
-    tex = new TextRect(filename.c_str(), (x*xFac)-1,y*yFac,xFac,yFac);
+    double xFac = 2./10.;
+    double yFac = 2./8.;
+    tex = new TextRect(filename.c_str(), intToDoubleX(x),intToDoubleY(y),xFac,yFac);
+    cout<<"!!!: "<<intToDoubleX(x)<<intToDoubleY(y)<<endl;
     
 }   
 Piece::~Piece(){
