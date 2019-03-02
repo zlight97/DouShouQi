@@ -16,8 +16,13 @@ public:
     void draw();
     void clicked(float x, float y);
     void updatePiece(int x, int y, int strength,Team t);
+    void stage();
+    int getX() {return x;}
+    int getY() {return y;}
+    Team getTeam() {return team;}
     string getID() {return ID;}
 private:
+    bool staged;
     string filename;
     Team team;
     string ID;

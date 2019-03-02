@@ -2,6 +2,8 @@
 
 Game::Game()
 {
+	newGame();
+	staged = false;
     //this initilizes the Pieces array with their given data
 }
 
@@ -42,6 +44,30 @@ void Game::click(float x, float y)
 	cout<<"[ "<<x<<", "<<y<<" ]\n";
 	cout<<"("<<xCh<<", "<<yCh<<")\n";
 	cout<<"("<<intToDoubleX(xCh)<<", "<<intToDoubleY(yCh)<<")\n";
+	if(!staged&&pieces[yCh][xCh]->getTeam()==currentTurn)
+	{
+		staged = true;
+		stagedPiece = pieces[yCh][xCh];
+	}else if(staged)
+	{
+		int curX = stagedPiece->getX();
+		int curY = stagedPiece->getY();
+		Piece *p = pieces[yCh][xCh];
+		pieces[curY][curX] = pieces[yCh][xCh];
+		pieces[yCh][xCh] = stagedPiece;
+		pieces[curY][curX]->move(curX,curY);
+		stagedPiece->move(xCh,yCh);
+
+		staged = false;
+		stagedPiece=NULL;
+		
+		if(currentTurn==BLACK)
+			currentTurn=RED;
+		else
+			currentTurn=BLACK;
+
+	}
+
 }
 
 void Game::drawBackground()

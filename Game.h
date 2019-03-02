@@ -22,6 +22,8 @@ private:
     void drawBackground();
     vector <vector<Piece*> > pieces;
     Team currentTurn;
+    bool staged;
+    Piece *stagedPiece;
     // bool 
     // vector<Map*> MapTiles;
     

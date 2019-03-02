@@ -6,10 +6,12 @@ Piece::Piece()
     ID = "empty";
     strength = 0;
     team = NEITHER;
+    staged = false;
 }
 
 Piece::Piece(int x, int y, int strength,Team t)//Team will decide where the piece is placed (x,y)
 {
+    staged = false;
     this->x = x;
     this->y = y;
     team = t;
@@ -67,7 +69,17 @@ Piece::~Piece(){
     delete tex;
 }
 
-bool Piece::move(int x, int y){}
+bool Piece::move(int x, int y)
+{
+    this->x = x;
+    this->y = y;
+    delete tex;
+    tex = new TextRect(filename.c_str(), intToDoubleX(this->x),intToDoubleY(this->y),2./9.,2./7.);
+}
+void Piece::stage()
+{
+    staged = !staged;
+}
 void Piece::draw()
 {
     tex->draw();
