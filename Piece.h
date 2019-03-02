@@ -16,6 +16,7 @@ public:
     void draw();
     void clicked(float x, float y);
 private:
+    string filename;
     Team team;
     string ID;
     int strength;

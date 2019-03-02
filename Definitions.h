@@ -11,22 +11,22 @@ enum Team
 int const col = 9;
 int const row = 6;
 
-inline int doubleToIntX(double x)
+inline const int doubleToIntX(const double &x)
 {
     return 9-(x-1)*-5;
 }
 
-inline int doubleToIntY(double y)
+inline const int doubleToIntY(const double &y)
 {
     return 7-(y+1.)*4;
 }
 
-inline double intToDoubleX(int x)
+inline const double intToDoubleX(const int &x)
 {
     return -1.+(5.*x);
 }
 
-inline double intToDoubleY(int y)
+inline const double intToDoubleY(const int &y)
 {
     return 1.-(4.*y);
 }

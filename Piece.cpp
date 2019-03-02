@@ -13,7 +13,6 @@ Piece::Piece(int x, int y, int strength,Team t)//Team will decide where the piec
     this->x = x;
     this->y = y;
     team = t;
-    string filename;
     this->strength = strength;
     switch(strength)
     {
@@ -23,41 +22,40 @@ Piece::Piece(int x, int y, int strength,Team t)//Team will decide where the piec
         break;
         case 1:
             ID = "rat";
-            filename = "textures/rat.png";
+            filename = "Textures/rat.png";
         break;
         case 2:
             ID = "cat";
-            filename = "textures/cat.png";
+            filename = "Textures/cat.png";
         break;
         case 3:
             ID = "wolf";
-            filename = "textures/wolf.png";
+            filename = "Textures/wolf.png";
         break;
         case 4:
             ID = "dog";
-            filename = "textures/dog.png";
+            filename = "Textures/dog.png";
         break;
         case 5:
             ID = "leopard";
-            filename = "textures/leopard.png";
+            filename = "Textures/leopard.png";
         break;
         case 6:
             ID = "tiger";
-            filename = "textures/tiger.png";
+            filename = "Textures/tiger.png";
         break;
         case 7:
             ID = "lion";
-            filename = "textures/lion.png";
+            filename = "Textures/lion.png";
         break;
         case 8:
             ID = "elephant";
-            filename= "textures/elephant.png";
+            filename= "Textures/elephant.png";
         break;
     }
     double xFac = 2./10.;
     double yFac = 2./8.;
     tex = new TextRect(filename.c_str(), intToDoubleX(x),intToDoubleY(y),xFac,yFac);
-    cout<<"!!!: "<<intToDoubleX(x)<<intToDoubleY(y)<<endl;
     
 }   
 Piece::~Piece(){
@@ -70,4 +68,10 @@ void Piece::draw()
     tex->draw();
 }
 
-void Piece::clicked(float x, float y){}
+void Piece::clicked(float x, float y){
+    this->x = doubleToIntX(x);
+    this->y = doubleToIntY(y);
+    delete tex;
+    tex = new TextRect(filename.c_str(), intToDoubleX(x),intToDoubleY(y),2./10.,2./8.);
+
+}
