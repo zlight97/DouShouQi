@@ -13,6 +13,7 @@ public:
     Game();
 
     void draw();
+    void click(float x, float y);
 
 private:
     Piece pieces[7][9];

@@ -9,3 +9,8 @@ void Game::draw()
 {
 
 }
+
+void Game::click(float x, float y)
+{
+
+}

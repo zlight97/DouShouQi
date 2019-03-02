@@ -47,4 +47,4 @@ Piece::Piece(int strength,Team t)//Team will decide where the piece is placed (x
 Piece::~Piece(){}
 bool Piece::move(int x, int y){}
 void Piece::draw(){}
-void Piece::clicked(int x, int y){}
+void Piece::clicked(float x, float y){}

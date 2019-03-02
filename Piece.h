@@ -14,7 +14,7 @@ public:
     ~Piece();
     bool move(int x, int y);
     void draw();
-    void clicked(int x, int y);
+    void clicked(float x, float y);
 private:
     Team team;
     string ID;

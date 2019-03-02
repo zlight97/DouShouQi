@@ -1,9 +1,9 @@
 #include "App.h"
-// #include "Game.h"
+#include "Game.h"
 
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
     // Initialize state variables
-
+    g = new Game();
 }
 
 App::~App()
@@ -35,6 +35,7 @@ void App::idle()
 }
 
 void App::mouseDown(float x, float y){
+    g->click(x,y);
 }
 
 void App::mouseDrag(float x, float y){
