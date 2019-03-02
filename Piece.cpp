@@ -53,9 +53,10 @@ Piece::Piece(int x, int y, int strength,Team t)//Team will decide where the piec
             filename= "Textures/elephant.png";
         break;
     }
-    double xFac = 2./10.;
-    double yFac = 2./8.;
+    double xFac = 2./9.;
+    double yFac = 2./7.;
     tex = new TextRect(filename.c_str(), intToDoubleX(x),intToDoubleY(y),xFac,yFac);
+    cout<<y<<" "<<intToDoubleX(x)<<" "<<intToDoubleY(y)<<endl;
     
 }   
 Piece::~Piece(){
@@ -71,7 +72,8 @@ void Piece::draw()
 void Piece::clicked(float x, float y){
     this->x = doubleToIntX(x);
     this->y = doubleToIntY(y);
+    cout<<this->x<<" "<<this->y<<endl;
     delete tex;
-    tex = new TextRect(filename.c_str(), intToDoubleX(x),intToDoubleY(y),2./10.,2./8.);
-
+    tex = new TextRect(filename.c_str(), intToDoubleX(this->x),intToDoubleY(this->y),2./9.,2./7.);
+    cout<<y<<" "<<intToDoubleX(this->x)<<" "<<intToDoubleY(this->y)<<endl;
 }

@@ -27,4 +27,5 @@ void Game::click(float x, float y)
 	int xCh = doubleToIntX(x);
 	cout<<"[ "<<x<<", "<<y<<" ]\n";
 	cout<<"("<<xCh<<", "<<yCh<<")\n";
+	cout<<"("<<intToDoubleX(xCh)<<", "<<intToDoubleY(yCh)<<")\n";
 }

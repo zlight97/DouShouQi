@@ -12,7 +12,7 @@ public:
     App(const char* label, int x, int y, int w, int h);
     ~App();
     Game *g;
-    // Piece *p;
+    Piece *p;
     // These are the events we want to handle
     void draw();
     void keyPress(unsigned char key);
