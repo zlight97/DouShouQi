@@ -45,6 +45,41 @@ Piece::Piece(int strength,Team t)//Team will decide where the piece is placed (x
     }
 }
 Piece::~Piece(){}
+
 bool Piece::move(int x, int y){}
-void Piece::draw(){}
-void Piece::clicked(float x, float y){}
+void Piece::draw()
+{
+    string filename;
+    switch(strength)
+    {
+        case 0:
+            filename = "empty";
+        break;
+        case 1:
+            filename = "textures/rat.png";
+        break;
+        case 2:
+            filename = "textures/cat.png";
+        break;
+        case 3:
+            filename = "textures/wolf.png";
+        break;
+        case 4:
+            filename = "textures/dog.png";
+        break;
+        case 5:
+            filename = "textures/leopard.png";
+        break;
+        case 6:
+            filename = "textures/tiger.png";
+        break;
+        case 7:
+            filename = "textures/lion.png";
+        break;
+        case 8:
+            filename= "textures/elephant.png";
+        break;
+    }
+}
+
+void Piece::clicked(int x, int y){}
