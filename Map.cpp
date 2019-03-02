@@ -1,23 +1,47 @@
 //Mapp.cpp
 #include "Map.h"
 
-Map::Map(float x, float y, float w, float h) {
+Map::Map(float x, float y, float w, float h, int tileType) {
     this -> x =  x;
     this -> y =  y;
     this -> w =  w;
     this -> h = h;
-    grassTex = new TextRect("Grass.png",x,y,w,h);
+    this -> tileType = tileType;
 }
 
-Map::Map(float x, float y, float w, float h, bool traversable) {
-    this -> x =  x;
-    this -> y =  y;
-    this -> w =  w;
-    this -> h = h;
-    this -> trav = traversable;
-    waterTex = new TextRect("Water.png",x,y,w,h,traversable);
-}
 Map::~Map() {
-    // delete Map;
-    // delete text;
+    delete grassTex;
+    delete waterTex;
+    delete trapTex;
+    delete denTex;
+}
+
+void Map::draw() {
+    // grassTex -> draw();
+    // waterTex -> draw();
+}
+
+void Map::loadText() {
+    if (grassTex == NULL || waterTex == NULL || trapTex == NULL || denTex == NULL){ 
+        return;
+    }
+    delete grassTex;
+    delete waterTex;
+    delete trapTex;
+    delete denTex;
+
+    switch(tileType) {
+        case 0: //grass
+            grassTex = new TextRect("Textures/grass.png",x ,y ,w ,h);
+            break;
+        case 1: //water
+            waterTex = new TextRect("Textures/river.png",x ,y ,w ,h);
+            break;
+        case 2: //trap 
+            trapTex = new TextRect("Textures/trap.jpg",x ,y ,w , h);
+            break;
+        case 3: //den
+            denTex = new TextRect("Texture/den.jpg", x, y, w, h);
+            break;
+    }
 }

@@ -19,6 +19,7 @@ void Game::draw()
 	// 		// MapTiles.push_back(new Map((i*xFac)-1,j*yFac,xFac,yFac, (j/3)+1));
 	// 	}
 	// }
+
 }
 void Game::click(float x, float y)
 {
