@@ -57,7 +57,7 @@ Piece::Piece(int x, int y, int strength,Team t)//Team will decide where the piec
     }
     double xFac = 2./9;
     double yFac = 2./7;
-    tex = new TexRect(filename.c_str(), (x*xFac)-1,y*yFac,xFac,yFac);
+    tex = new TextRect(filename.c_str(), (x*xFac)-1,y*yFac,xFac,yFac);
     
 }   
 Piece::~Piece(){

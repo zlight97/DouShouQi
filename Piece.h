@@ -21,7 +21,7 @@ private:
     string ID;
     int strength;
     int x, y;
-    TexRect *tex;
+    TextRect *tex;
 };
 
 #endif

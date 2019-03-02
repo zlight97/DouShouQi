@@ -5,7 +5,7 @@ SOURCES := $(shell echo $(./)*.cpp)
 DEPENDS = $(SOURCES:.cpp=.d)
 OBJECTS = $(SOURCES:.cpp=.o)
 OS = $(shell uname) # For Mac OS detection (by Rolando Yanez, Raymond Harris)
-PROGRAM = Breakout
+PROGRAM = DouShouQi
 
 #######################################################################
 
