@@ -20,7 +20,7 @@ private:
     void drawBackground();
     Piece pieces[7][9];
     Team currentTurn;
-    vector<Map*> MapTiles;
+    // vector<Map*> MapTiles;
     
 
 };

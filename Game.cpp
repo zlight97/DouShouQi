@@ -7,6 +7,7 @@ Game::Game()
 
 void Game::draw()
 {
+
 	drawBackground();
     // Need to work out the math to display the tiles
     // Need tp push back Map tiles
