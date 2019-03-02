@@ -2,7 +2,6 @@
 #define App_hpp
 
 #include "GlutApp.h"
-#include "keyboardHandler.h"
 
 class App: public GlutApp {
     // Maintain app state here
