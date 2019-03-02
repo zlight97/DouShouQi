@@ -2,6 +2,7 @@
 #define PIECE_H
 
 #include "GlutApp.h"
+#include "Definitions.h"
 #include <iostream>
 
 using namespace std;
