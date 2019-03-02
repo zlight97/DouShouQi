@@ -12,7 +12,7 @@ class Game
 {
 public:
     Game();
-	
+    void start();
     void draw();
     void click(float x, float y);
 
@@ -20,6 +20,8 @@ private:
     Piece pieces[7][9];
     Team currentTurn;
     vector<Map*> MapTiles;
+    
+
 };
 
 #endif
