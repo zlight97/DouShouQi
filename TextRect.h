@@ -1,5 +1,5 @@
-#ifndef TexRect_h
-#define TexRect_h
+#ifndef TextRect_h
+#define TextRect_h
 
 #if defined WIN32
 #include <freeglut.h>
@@ -12,15 +12,17 @@
 #include <SOIL.h>
 #endif
 
-class TexRect {
+class TextRect {
 public:
     float x;
     float y;
     float w;
     float h;
+    bool trav;
     GLuint texture_id;
 
-    TexRect (const char*, float, float, float, float);
+    TextRect (const char*, float, float, float, float);
+    TextRect (const char*, float, float, float, float, bool);
  
     void draw();
     
