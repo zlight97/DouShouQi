@@ -13,12 +13,12 @@ int const row = 6;
 
 inline int doubleToIntX(const double &x)
 {
-    return 9-(x-1)*-5;
+    return (x+1)/(2./9.);
 }
 
 inline int doubleToIntY(const double &y)
 {
-    return 7-(y+1.)*4;
+    return (y-1)/(-2./7.);
 }
 
 inline double intToDoubleX(const int &x)

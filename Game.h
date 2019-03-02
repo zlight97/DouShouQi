@@ -17,6 +17,7 @@ public:
     void click(float x, float y);
 
 private:
+    void drawBackground();
     Piece pieces[7][9];
     Team currentTurn;
     vector<Map*> MapTiles;
