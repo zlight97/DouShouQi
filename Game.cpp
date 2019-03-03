@@ -36,13 +36,13 @@ void Game::draw()
 				pieces[j][i]->draw();
 				
 				
+			if (mapTiles.size() >= 7 && mapTiles[j][i] != NULL)
+				mapTiles[j][i]->draw();
 				}
 
 	}
 	// for(int i = 0; i<col;i++){
 	// 	for(int j = 0; j<row;j++){
-	// 		if (mapTiles.size() >= 7 && mapTiles[j][i] != NULL)
-	// 			mapTiles[i][j]->draw();
 	// 	}
 	// }
 }
@@ -153,34 +153,34 @@ void Game::newGame()
 		}
 	}
 	// // Top river
-	mapTiles[1][3] -> updateTile(WATER, 1,3);
-	mapTiles[1][4] -> updateTile(WATER, 1,4);
-	mapTiles[1][5] -> updateTile(WATER, 1,5);
-	mapTiles[2][3] -> updateTile(WATER, 2,3);
-	mapTiles[2][4] -> updateTile(WATER, 2,4);
-	mapTiles[2][5] -> updateTile(WATER, 2,5);
+	mapTiles[1][3] -> updateTile(WATER, 3,1);
+	mapTiles[1][4] -> updateTile(WATER, 4,1);
+	mapTiles[1][5] -> updateTile(WATER, 5,1);
+	mapTiles[2][3] -> updateTile(WATER, 3,2);
+	mapTiles[2][4] -> updateTile(WATER, 4,2);
+	mapTiles[2][5] -> updateTile(WATER, 5,2);
 	
 	//Bottom River
-	mapTiles[4][3] -> updateTile(WATER, 4,3);
+	mapTiles[4][3] -> updateTile(WATER, 3,4);
     mapTiles[4][4] -> updateTile(WATER, 4,4);
-	mapTiles[4][5] -> updateTile(WATER, 4,5);
-	mapTiles[5][3] -> updateTile(WATER, 5,3);
-    mapTiles[5][4] -> updateTile(WATER, 5,4);
+	mapTiles[4][5] -> updateTile(WATER, 5,4);
+	mapTiles[5][3] -> updateTile(WATER, 3,5);
+    mapTiles[5][4] -> updateTile(WATER, 4,5);
     mapTiles[5][5] -> updateTile(WATER, 5,5);
 
 	//  Left Traps
-	mapTiles[2][0] -> updateTile(TRAP,2,0);
-	mapTiles[4][0] -> updateTile(TRAP,4,0);
-	mapTiles[1][1] -> updateTile(TRAP,1,1);
+	mapTiles[2][0] -> updateTile(TRAP,0,2);
+	mapTiles[4][0] -> updateTile(TRAP,0,4);
+	mapTiles[3][1] -> updateTile(TRAP,1,3);
        
 	// Right Traps
-	mapTiles[2][8] -> updateTile(TRAP,2,8);
-	mapTiles[4][8] -> updateTile(TRAP,4,8);
-	mapTiles[3][7] -> updateTile(TRAP,3,7);
+	mapTiles[2][8] -> updateTile(TRAP,8,2);
+	mapTiles[4][8] -> updateTile(TRAP,8,4);
+	mapTiles[3][7] -> updateTile(TRAP,7,3);
         
 	//Left Den
-    mapTiles[0][3] -> updateTile(DEN,0,3);
+    mapTiles[3][0] -> updateTile(DEN,0,3);
 
     //Right Den
-	mapTiles[3][3] -> updateTile(DEN,3,8);
+	mapTiles[3][3] -> updateTile(DEN,8,3);
 }

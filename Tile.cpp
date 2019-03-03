@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-Tile::Tile() {}
+Tile::Tile() {type = NONE;}
 
 Tile::Tile(tileType t, int x, int y) {
     
@@ -25,8 +25,8 @@ Tile::Tile(tileType t, int x, int y) {
         filename = "none";
         break;
     }
-     double  xFac = 2./10; 
-     double yFac = 2./8;
+     double  xFac = 2./9; 
+     double yFac = 2./7;
     tex = new TextRect(filename.c_str(), intToDoubleX(x),intToDoubleY(y),xFac,yFac);
 }
 
@@ -45,11 +45,18 @@ void Tile::updateTile(tileType type,int x,int y) {
         case DEN:
             filename = "den.png";
         break;
+    }
     double xFac = 2./9.;
     double yFac = 2./7.;
     tex = new TextRect(filename.c_str(), intToDoubleX(x),intToDoubleY(y),xFac,yFac);
-    }
+    
 }
 Tile::~Tile() {delete tex;}
-void Tile::draw(){tex->draw();}
+
+void Tile::draw(){
+    if(type==NONE||tex==NULL)
+        return;
+    tex->draw();
+    }
+    
 tileType Tile::getType() {return type;}
