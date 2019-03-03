@@ -5,6 +5,7 @@
 #include "GlutApp.h"
 #include "Piece.h"
 #include "Map.h"
+#include "Tile.h"
 
 using namespace std;
 
@@ -20,15 +21,11 @@ public:
 
 private:
     void drawBackground();
+    Piece *stagedPiece;
     vector <vector<Piece*> > pieces;
     Team currentTurn;
     bool staged;
-    Piece *stagedPiece;
     validDir valid;
-    // bool 
-    // vector<Map*> MapTiles;
-    
-
 };
 
 #endif

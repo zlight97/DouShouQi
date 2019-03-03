@@ -1,9 +1,8 @@
 #include "Tile.h"
 #include "Definitions.h"
 
-Tile::Tile() {
-    
-}
+
+Tile::Tile() {}
 
 Tile::Tile(tileType t, int x, int y, double  xFac = 2./10, double yFac = 2./8) {
     this -> x = x;
@@ -14,7 +13,7 @@ Tile::Tile(tileType t, int x, int y, double  xFac = 2./10, double yFac = 2./8) {
     switch(type)
     {
         case WATER:
-        filename = "river.jpg";
+        filename = "Textures/river.png";
         break;
         case TRAP:
         filename = "trap.jpg";
@@ -27,7 +26,6 @@ Tile::Tile(tileType t, int x, int y, double  xFac = 2./10, double yFac = 2./8) {
         break;
     }
     tex = new TextRect(filename.c_str(), intToDoubleX(x),intToDoubleY(y),xFac,yFac);
-    // this -> traversable = traversable;
 }
 Tile::~Tile() {
     delete tex;
@@ -35,8 +33,6 @@ Tile::~Tile() {
 
 void Tile::draw()
 {
-    if(type==NONE)
-        return;
     tex->draw();
 }
 
