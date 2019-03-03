@@ -24,6 +24,8 @@ public:
     Team getTeam() {return team;}
     string getID() {return ID;}
     int getStrength(){return strength;}
+    void changeStrength(int strength) {this->strength;}
+    
 private:
     validDir stagedDir;
     bool staged;
