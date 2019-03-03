@@ -42,7 +42,7 @@ void App::mouseDown(float x, float y){
 }
 
 void App::mouseDrag(float x, float y){
-    redraw();
+    
 }
 
 void App::mouseMove(float x, float y)
