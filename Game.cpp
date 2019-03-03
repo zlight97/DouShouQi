@@ -59,7 +59,8 @@ void Game::click(float x, float y)
 		int curX = stagedPiece->getX();
 		int curY = stagedPiece->getY();
 		
-		if (((curX-xCh)==1)|((curX-xCh)==-1)|((curY-yCh)==1)|((curY-yCh)==-1)){
+		if ((((curX-xCh)==1)&&(curY==yCh))|(((curX-xCh)==-1)&&(curY==yCh))
+		   |(((curY-yCh)==1)&&(curX==xCh))|(((curY-yCh)==-1)&&(curX==xCh))){
 			pieces[curY][curX] = pieces[yCh][xCh];
 			pieces[yCh][xCh] = stagedPiece;
 			pieces[curY][curX]->move(curX,curY);
