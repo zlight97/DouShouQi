@@ -57,6 +57,8 @@ validDir Game::checkValid(Piece *p)
 	Team t = p->getTeam();
 	int cX = p->getX();
 	int cY = p->getY();
+	int bX = cX;
+	int bY = cY;
 	if(p->getStrength()==1)
 	{
 		if(cX>0)
@@ -70,6 +72,22 @@ validDir Game::checkValid(Piece *p)
 				ret.up = 1;
 		if(cY<6)
 			if((pieces[cY+1][cX]->getID()=="empty"||pieces[cY+1][cX]->getStrength()==1||pieces[cY+1][cX]->getStrength()==8)&&pieces[cY+1][cX]->getTeam()!=t)
+				ret.down = 1;
+	}
+
+	else if(p->getStrength()==8)
+	{
+		if(cX>0)
+			if(pieces[cY][cX-1]->getID()=="empty"||pieces[cY][cX-1]->getStrength()!=1&&pieces[cY][cX-1]->getTeam()!=t)
+				ret.left = 1;
+		if(cX<8)
+			if(pieces[cY][cX+1]->getID()=="empty"||pieces[cY][cX+1]->getStrength()!=1&&pieces[cY][cX+1]->getTeam()!=t)
+				ret.right = 1;
+		if(cY>0)
+			if(pieces[cY-1][cX]->getID()=="empty"||pieces[cY-1][cX]->getStrength()!=1&&pieces[cY-1][cX]->getTeam()!=t)
+				ret.up = 1;
+		if(cY<6)
+			if(pieces[cY+1][cX]->getID()=="empty"||pieces[cY+1][cX]->getStrength()!=1&&pieces[cY+1][cX]->getTeam()!=t)
 				ret.down = 1;
 	}
 	else
@@ -93,21 +111,65 @@ validDir Game::checkValid(Piece *p)
 			if(mapTiles[cY][cX-1]->getType()==WATER)
 			{
 				int count = 0;
+				bool flag = 0;
 				while(mapTiles[cY][cX-1-count]->getType()==WATER)
+				{
+					if(pieces[cY][cX-1-count]->getID()!="empty")
+						flag = 1;
 					count++;
+				}
 				cX = cX-count-1;
-				if((pieces[cY][cX-1]->getID()=="empty"||pieces[cY][cX-1]->getStrength()<=p->getStrength())&&mapTiles[cY][cX-1]->getType()!=WATER&&pieces[cY][cX-1]->getTeam()!=t)
+				if(!flag&&(pieces[cY][cX-1]->getID()=="empty"||pieces[cY][cX-1]->getStrength()<=p->getStrength())&&mapTiles[cY][cX-1]->getType()!=WATER&&pieces[cY][cX-1]->getTeam()!=t)
 					ret.left = count+1;
+				cX = bX;
 			}
-			if(cX<8)
+		if(cX<8)
 			if(mapTiles[cY][cX+1]->getType()==WATER)
 			{
 				int count = 0;
+				bool flag = 0;
 				while(mapTiles[cY][cX+1+count]->getType()==WATER)
+				{
+					if(pieces[cY][cX+1+count]->getID()!="empty")
+						flag = 1;
 					count++;
+				}
 				cX = cX+count+1;
-				if((pieces[cY][cX+1]->getID()=="empty"||pieces[cY][cX+1]->getStrength()<=p->getStrength())&&mapTiles[cY][cX+1]->getType()!=WATER&&pieces[cY][cX+1]->getTeam()!=t)
+				if(!flag&&(pieces[cY][cX+1]->getID()=="empty"||pieces[cY][cX+1]->getStrength()<=p->getStrength())&&mapTiles[cY][cX+1]->getType()!=WATER&&pieces[cY][cX+1]->getTeam()!=t)
 					ret.right = count+1;
+				cX = bX;
+			}
+		if(cY<6)
+			if(mapTiles[cY+1][cX]->getType()==WATER)
+			{
+				bool flag = 0;
+				int count = 0;
+				while(mapTiles[cY+1+count][cX]->getType()==WATER)
+				{
+					if(pieces[cY+1+count][cX]->getID()!="empty")
+						flag = 1;
+					count++;
+				}
+				cY = cY+count;
+				if(!flag&&(pieces[cY+1][cX]->getID()=="empty"||pieces[cY+1][cX]->getStrength()<=p->getStrength())&&mapTiles[cY+1][cX]->getType()!=WATER&&pieces[cY+1][cX]->getTeam()!=t)
+					ret.down = count+1;
+				cY = bY;
+			}
+		if(cY>0)
+			if(mapTiles[cY-1][cX]->getType()==WATER)
+			{
+				bool flag = 0;
+				int count = 0;
+				while(mapTiles[cY-1-count][cX]->getType()==WATER)
+				{
+					if(pieces[cY-1-count][cX]->getID()!="empty")
+						flag = 1;
+					count++;
+				}
+				cY = cY-count;
+				if(!flag&&(pieces[cY-1][cX]->getID()=="empty"||pieces[cY-1][cX]->getStrength()<=p->getStrength())&&mapTiles[cY-1][cX]->getType()!=WATER&&pieces[cY-1][cX]->getTeam()!=t)
+					ret.up = count+1;
+				cY = bY;
 			}
 
 	}
