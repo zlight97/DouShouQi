@@ -18,7 +18,7 @@ GlutApp::GlutApp(const char* label, int x, int y, int w, int h) {
     glEnable (GL_LINE_SMOOTH);
     glHint (GL_LINE_SMOOTH_HINT, GL_NICEST);
     glHint (GL_POINT_SMOOTH_HINT, GL_NICEST);
-    glPointSize (10);
+    glPointSize (50);
     glLineWidth (2);
     
     // Setup GLUT callbacks for different events

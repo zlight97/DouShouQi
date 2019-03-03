@@ -34,8 +34,8 @@ void Game::draw()
 			// MapTiles.push_back(new Map((i*xFac)-1,j*yFac,xFac,yFac, (j/3)+1));
 			if(pieces.size()>=7&&pieces[j][i]!=NULL && pieces[j][i]->getID()!="empty")
 			{
-				pieces[j][i]->draw();
 				pieces[j][i]->drawStaged();
+				pieces[j][i]->draw();
 			}	
 				
 			if (mapTiles.size() >= 7 && mapTiles[j][i] != NULL)

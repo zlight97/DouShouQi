@@ -89,7 +89,7 @@ void Piece::stage()
 void Piece::stage(validDir d)
 {
     staged = true;
-    stagedDir = d;
+    valid = d;
 }
 
 void Piece::draw()
@@ -108,21 +108,23 @@ void Piece::drawStaged()
     
     if(staged)
     {
-        glColor3d(1.0, 0.0, 0.0);
+        glColor3d(1.0, 1.0, 0.0);
         glBegin(GL_POINTS);
+        
         if (valid.up >= 1) {
-            glVertex2f(intToDoubleX(x) - xFac/2., intToDoubleY(y-valid.up));
+            glVertex2f(intToDoubleX(x) + xFac, intToDoubleY(y-valid.up)-yFac);
         }
         if (valid.down >= 1) {
-            glVertex2f(intToDoubleX(x) + xFac/2., intToDoubleY(y+valid.up));
+            glVertex2f(intToDoubleX(x) + xFac, intToDoubleY(y+valid.down)-yFac);
         }
         if (valid.right >= 1) {
-            glVertex2f(intToDoubleX(x + valid.right), intToDoubleY(y)+yFac/2);
+            glVertex2f(intToDoubleX(x + valid.right) + xFac, intToDoubleY(y)-yFac);
         }
         if (valid.left >= 1) {
-            glVertex2f(intToDoubleX(x - valid.right), intToDoubleY(y)-yFac/2);
+            glVertex2f(intToDoubleX(x - valid.left) + xFac, intToDoubleY(y)-yFac);
         }
         glEnd();
+	cout<<valid.up<<" "<<valid.down<<" "<<valid.left<<" "<<valid.right<<endl;
     }
         //this uses the values in stagedDir to determine where to draw, assume given values are correct
 }
