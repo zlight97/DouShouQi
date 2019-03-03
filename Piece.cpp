@@ -94,12 +94,37 @@ void Piece::draw()
 }
 
 void Piece::drawStaged()
-{
+{   
+    
+
+    float x = getX();
+    float y = getY();
+    float xFac = 1./9.;
+    float yFac = 1./7.;
+
+    // Adacent center tile coordinates
+    
     if(staged)
     {
-        //this uses the values in stagedDir to determine where to draw, assume given values are correct
+        glColor3d(1.0, 0.0, 0.0);
+    glBegin(GL_POINTS);
+        if (valid.up >= 1) {
+            glVertex2f(intToDoubleX(x) - xFac/2., intToDoubleY(y-valid.up));
+        }
+        if (valid.down >= 1) {
+            glVertex2f(intToDoubleX(x) + xFac/2., intToDoubleY(y+valid.up));
+        }
+        // if (validDir.right >= 1) {
+        //     glVertex2f(intToDoubleX(x) + xFac/2., intToDoubleY(y+valid.up));
+        // }
+        // if (validDir.left() >= 1) {
+        //     glVertex2f(x, y + yFac * validDir.right());
+        // }
+        glEnd();
     }
+        //this uses the values in stagedDir to determine where to draw, assume given values are correct
 }
+
 
 void Piece::clicked(float x, float y){
     this->x = doubleToIntX(x);
