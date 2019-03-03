@@ -4,7 +4,7 @@
 #include <vector>
 #include "GlutApp.h"
 #include "Piece.h"
-#include "Map.h"
+// #include "Map.h"
 #include "Tile.h"
 
 using namespace std;
@@ -23,6 +23,7 @@ private:
     void drawBackground();
     Piece *stagedPiece;
     vector <vector<Piece*> > pieces;
+    vector <vector<Tile*> > mapTiles;
     Team currentTurn;
     bool staged;
     validDir valid;

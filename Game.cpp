@@ -1,5 +1,6 @@
 #include "Game.h"
-
+#include <iostream>
+using namespace std;
 Game::Game()
 {
 	newGame();
@@ -7,20 +8,23 @@ Game::Game()
     //this initilizes the Pieces array with their given data
 }
 
-Game::~Game()
-{
-	for(int i = 0; i<9;i++)
-		for(int j =0; j<7;j++)
-			if(pieces[j][i]!=NULL)
+Game::~Game(){
+	for(int i = 0; i<9;i++) 
+		for(int j =0; j<7;j++) 
+			if(pieces[j][i]!=NULL) 
 				delete pieces[j][i];
-}
+
+	for(int i = 0; i<9;i++) 
+		for(int j =0; j<7;j++) 
+			if(mapTiles[j][i]!=NULL) 
+				delete mapTiles[j][i];
+}	
+
 
 void Game::draw()
 {
 	drawBackground();
 	
-    // Need to work out the math to display the tiles
-    // Need tp push back Map tiles
     for(int i = 0; i<col;i++)
 	{
 		for(int j = 0; j<row;j++)
@@ -30,10 +34,19 @@ void Game::draw()
 			// MapTiles.push_back(new Map((i*xFac)-1,j*yFac,xFac,yFac, (j/3)+1));
 			if(pieces.size()>=7&&pieces[j][i]!=NULL && pieces[j][i]->getID()!="empty")
 				pieces[j][i]->draw();
-		}
-	}
+				
+				
+				}
 
+	}
+	// for(int i = 0; i<col;i++){
+	// 	for(int j = 0; j<row;j++){
+	// 		if (mapTiles.size() >= 7 && mapTiles[j][i] != NULL)
+	// 			mapTiles[i][j]->draw();
+	// 	}
+	// }
 }
+
 void Game::click(float x, float y)
 {
     double xFac = 2./10.;
@@ -132,4 +145,42 @@ void Game::newGame()
 	pieces[6-0][8-0]->updatePiece(8-0,6-0,6,BLACK);
 	pieces[6-6][8-0]->updatePiece(8-0,6-6,7,BLACK);
 	pieces[6-0][8-2]->updatePiece(8-2,6-0,8,BLACK);
+
+	for(int i = 0; i<7; i++) {
+		mapTiles.push_back(vector<Tile*>());
+		for(int j = 0; j<9;j++) {
+			 mapTiles[i].push_back(new Tile());
+		}
+	}
+	// // Top river
+	mapTiles[1][3] -> updateTile(WATER, 1,3);
+	mapTiles[1][4] -> updateTile(WATER, 1,4);
+	mapTiles[1][5] -> updateTile(WATER, 1,5);
+	mapTiles[2][3] -> updateTile(WATER, 2,3);
+	mapTiles[2][4] -> updateTile(WATER, 2,4);
+	mapTiles[2][5] -> updateTile(WATER, 2,5);
+	
+	//Bottom River
+	mapTiles[4][3] -> updateTile(WATER, 4,3);
+    mapTiles[4][4] -> updateTile(WATER, 4,4);
+	mapTiles[4][5] -> updateTile(WATER, 4,5);
+	mapTiles[5][3] -> updateTile(WATER, 5,3);
+    mapTiles[5][4] -> updateTile(WATER, 5,4);
+    mapTiles[5][5] -> updateTile(WATER, 5,5);
+
+	//  Left Traps
+	mapTiles[2][0] -> updateTile(TRAP,2,0);
+	mapTiles[4][0] -> updateTile(TRAP,4,0);
+	mapTiles[1][1] -> updateTile(TRAP,1,1);
+       
+	// Right Traps
+	mapTiles[2][8] -> updateTile(TRAP,2,8);
+	mapTiles[4][8] -> updateTile(TRAP,4,8);
+	mapTiles[3][7] -> updateTile(TRAP,3,7);
+        
+	//Left Den
+    mapTiles[0][3] -> updateTile(DEN,0,3);
+
+    //Right Den
+	mapTiles[3][3] -> updateTile(DEN,3,8);
 }

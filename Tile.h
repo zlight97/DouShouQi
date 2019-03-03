@@ -16,9 +16,10 @@ class Tile{
         std::string filename;
     public:
         Tile();
-        Tile(tileType t, int x, int y, double xFac, double yFac);
+        Tile(tileType t, int x, int y);
         ~Tile();
-        tileType getType();
         void draw();
+        void updateTile(tileType type,int x,int y);
+        tileType getType();
 };
 #endif

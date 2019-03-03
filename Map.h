@@ -17,7 +17,7 @@ class Map {
     public:
         Map();
         ~Map();
-        Map(int x,int y,float w,float h,int type);
+        Map(int x,int y,int type);
         void draw();
         void setTileType(int newTile){tileType = newTile;}
         int getTileType(){return tileType;}
