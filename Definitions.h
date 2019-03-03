@@ -18,10 +18,10 @@ enum tileType
 
 struct validDir
 {
-    bool up;
-    bool down;
-    bool left;
-    bool right;
+    int up;
+    int down;
+    int left;
+    int right;
 };
 
 int const col = 9;

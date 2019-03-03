@@ -4,6 +4,7 @@
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
     // Initialize state variables
     g = new Game();
+    redraw();
 }
 
 App::~App()

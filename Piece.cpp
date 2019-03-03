@@ -76,14 +76,29 @@ bool Piece::move(int x, int y)
     delete tex;
     tex = new TextRect(filename.c_str(), intToDoubleX(this->x),intToDoubleY(this->y),2./9.,2./7.);
 }
-void Piece::stage(/*valid*/)
+
+void Piece::stage()
 {
-    staged = !staged;
+    staged = false;
+}
+
+void Piece::stage(validDir d)
+{
+    staged = true;
+    stagedDir = d;
 }
 
 void Piece::draw()
 {
     tex->draw();
+}
+
+void Piece::drawStaged()
+{
+    if(staged)
+    {
+        //this uses the values in stagedDir to determine where to draw, assume given values are correct
+    }
 }
 
 void Piece::clicked(float x, float y){

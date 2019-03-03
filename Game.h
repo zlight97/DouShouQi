@@ -21,6 +21,7 @@ public:
 
 private:
     void drawBackground();
+    validDir checkValid(Piece *p);
     Piece *stagedPiece;
     vector <vector<Piece*> > pieces;
     vector <vector<Tile*> > mapTiles;
