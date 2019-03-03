@@ -13,20 +13,20 @@ Tile::Tile(tileType t, int x, int y) {
     switch(type)
     {
         case WATER:
-        filename = "river.png";
+        filename = "Textures/river.png";
         break;
         case TRAP:
-        filename = "trap.jpg";
+        filename = "Textures/trap.png";
         break;
         case DEN:
-        filename = "den copy.jpg";
+        filename = "Textures/den.png";
         break;
         default:
         filename = "none";
         break;
     }
-     double  xFac = 2./9; 
-     double yFac = 2./7;
+    double  xFac = 2./9; 
+    double yFac = 2./7;
     tex = new TextRect(filename.c_str(), intToDoubleX(x),intToDoubleY(y),xFac,yFac);
 }
 
@@ -37,13 +37,13 @@ void Tile::updateTile(tileType type,int x,int y) {
     switch(type)
     {
         case WATER:
-            filename = "river.png";
+            filename = "Textures/river.png";
         break;
         case TRAP:
-            filename = "trap.png";
+            filename = "Textures/trap.png";
         break;
         case DEN:
-            filename = "den.png";
+            filename = "Textures/den.png";
         break;
     }
     double xFac = 2./9.;
