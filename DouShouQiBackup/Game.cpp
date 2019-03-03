@@ -33,10 +33,8 @@ void Game::draw()
 			// float yFac = 1./row;
 			// MapTiles.push_back(new Map((i*xFac)-1,j*yFac,xFac,yFac, (j/3)+1));
 			if(pieces.size()>=7&&pieces[j][i]!=NULL && pieces[j][i]->getID()!="empty")
-			{
 				pieces[j][i]->draw();
-				pieces[j][i]->drawStaged();
-			}	
+				
 				
 			if (mapTiles.size() >= 7 && mapTiles[j][i] != NULL)
 				mapTiles[j][i]->draw();
@@ -74,22 +72,10 @@ validDir Game::checkValid(Piece *p)
 			if((pieces[cY+1][cX]->getID()=="empty"||pieces[cY+1][cX]->getStrength()==1||pieces[cY+1][cX]->getStrength()==8)&&pieces[cY+1][cX]->getTeam()!=t)
 				ret.down = 1;
 	}
+	// else if(p->getStrength()==6||p->getStrength()==7)
+	// {
 
-	else if(p->getStrength()==8)
-	{
-		if(cX>0)
-			if(pieces[cY][cX-1]->getID()=="empty"||pieces[cY][cX-1]->getStrength()!=1&&pieces[cY][cX-1]->getTeam()!=t)
-				ret.left = 1;
-		if(cX<8)
-			if(pieces[cY][cX+1]->getID()=="empty"||pieces[cY][cX+1]->getStrength()!=1&&pieces[cY][cX+1]->getTeam()!=t)
-				ret.right = 1;
-		if(cY>0)
-			if(pieces[cY-1][cX]->getID()=="empty"||pieces[cY-1][cX]->getStrength()!=1&&pieces[cY-1][cX]->getTeam()!=t)
-				ret.up = 1;
-		if(cY<6)
-			if(pieces[cY+1][cX]->getID()=="empty"||pieces[cY+1][cX]->getStrength()!=1&&pieces[cY+1][cX]->getTeam()!=t)
-				ret.down = 1;
-	}
+	// }
 	else
 	{
 		if(cX>0)
@@ -105,6 +91,8 @@ validDir Game::checkValid(Piece *p)
 			if((pieces[cY+1][cX]->getID()=="empty"||pieces[cY+1][cX]->getStrength()<=p->getStrength())&&mapTiles[cY+1][cX]->getType()!=WATER&&pieces[cY+1][cX]->getTeam()!=t)
 				ret.down = 1;
 	}
+
+	cout<<ret.up<<" "<<ret.down<<" "<<ret.left<<" "<<ret.right<<endl;
 	return ret;
 }
 
